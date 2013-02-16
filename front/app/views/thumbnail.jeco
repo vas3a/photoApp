@@ -1,0 +1,4 @@
+<span class="item thumbnail">
+	<span class="image-name"><%= @title %></span>
+	<img src="<%= @thumbsrc %>" alt="<%= @title %>" />
+</span>

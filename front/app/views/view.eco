@@ -1,0 +1,3 @@
+<div class="image" style="position: relative">
+	<img class="bigImage" src="<%= @imgsrc %>" alt="<%= @title %>" id="<%= @elId %>" />
+</div>
