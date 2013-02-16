@@ -1,0 +1,6 @@
+acme_app_homepage:
+    pattern:  /
+    defaults: { _controller: AcmeAppBundle:Default:index }
+acme_app_generate:
+    pattern:  /generate/{n}
+    defaults: { _controller: AcmeAppBundle:Default:generatePhotos }

@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+.viewport {
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.viewport img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.preloader {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 1px;
+  height: 1px;
+  display: none;
+}
+.popup,
+.thumbList .thumbnail .image-name {
+  display: block;
+  background: #fff;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+.thumbsContainer {
+  width: auto;
+  height: 70px;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: left 0.3s ease;
+  -moz-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+}
+.thumbList {
+  width: 1600px;
+  height: 60px;
+  margin: 0 auto;
+  -webkit-transition: left 0.3s ease;
+  -moz-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+}
+.thumbList .thumbnail {
+  display: block;
+  float: left;
+  width: 80px;
+  height: 60px;
+  margin: 0 3px;
+  position: relative;
+  border: solid 1px transparent;
+  outline: solid 1px transparent;
+  cursor: pointer;
+}
+.thumbList .thumbnail:before {
+  content: ' ';
+  display: block;
+  width: 80px;
+  height: 60px;
+  background: rgba(0,0,0,0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.thumbList .thumbnail.active:before,
+.thumbList .thumbnail:hover:before {
+  background: none transparent;
+  border: solid 1px #999;
+  outline: solid 1px #333;
+}
+.thumbList .thumbnail .image-name {
+  text-align: center;
+}
+.thumbList .thumbnail:hover .image-name {
+  opacity: 1;
+}

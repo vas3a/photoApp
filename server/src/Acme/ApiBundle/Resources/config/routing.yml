@@ -1,0 +1,17 @@
+acme_api_image_get_all:
+    pattern:  /images
+    defaults: { _controller: AcmeApiBundle:Photos:getAll, _format: ~ }
+    requirements:
+        _method: GET
+acme_api_image_get_one:
+    pattern:  /images/{id}
+    defaults: { _controller: AcmeApiBundle:Photos:getOne, _format: ~ }
+    requirements:
+        _method: GET
+        id: "\d+"
+acme_api_image_set_one:
+    pattern:  /images/{id}
+    defaults: { _controller: AcmeApiBundle:Photos:setOne, _format: ~ }
+    requirements:
+        _method: PUT
+        id: "\d+"
