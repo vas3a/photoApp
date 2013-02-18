@@ -1,16 +1,19 @@
 require('lib/setup')
-Spine = @Spine
+
 Image = require('models/image')
+
 ThumbController = require('controllers/thumbnail')
 ViewController  = require('controllers/view')
+UserController  = require('controllers/user')
 
 class App extends Spine.Controller
 	events:
 		'thumb_activated' : '_onThumbActivate'
-		'keyup' : '_onKeyPressed'
+		'keydown' : '_onKeyPressed'
 
 	constructor: ->
 		super
+
 		@thumb = new ThumbController
 		@view = new ViewController
 
@@ -25,6 +28,5 @@ class App extends Spine.Controller
 			@thumb.trigger 'show_next'
 		else if ev.which is 37
 			@thumb.trigger 'show_prev'
-
 
 module.exports = App

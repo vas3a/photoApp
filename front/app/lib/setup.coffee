@@ -2,10 +2,21 @@ require('json2ify')
 require('es5-shimify')
 require('jqueryify')
 
-Spine = require('spine')
-Spine.Local = require('spine/lib/local')
+@Spine = require('spine')
+
 require('spine/lib/ajax')
+Spine.Model.host = "/app.php/api"
+
 # require('spine/lib/manager')
-Spine.Route = require('spine/lib/route')
-Spine.List = require('spine/lib/list')
-Spine.Model.host = "http://app.local.com/app_dev.php/api"
+# require('spine/lib/route')
+require('spine/lib/local')
+require('spine/lib/list')
+
+# custom libraries
+require('lib/waypoints')
+
+#user Model
+@User = require('models/user')
+User.fetch()
+@user = User.first() or new User(settings: {})
+@user.save()

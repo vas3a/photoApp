@@ -1,4 +1,3 @@
-Spine = require('spine')
 Image = require('models/image')
 
 class Preloader extends Spine.Controller
@@ -35,11 +34,12 @@ class Preloader extends Spine.Controller
 		
 	loadImage: (img) =>
 		img.elId = 'image-c-id-'+img.id
-		@el.append require('views/view')(img)
-		t = setTimeout(
-			=>
-				clearTimeout(t)
-				$('#'+img.elId).parent().remove()
-		,500)
+		if !$('#'+img.elId).length
+			@el.append require('views/view')(img)
+		# t = setTimeout(
+		# 	=>
+		# 		clearTimeout(t)
+		# 		# $('#'+img.elId).parent().remove()
+		# ,500)
 		
 module.exports = Preloader

@@ -1,4 +1,3 @@
-Spine = require('spine')
 Image= require('models/image')
 
 class View extends Spine.Controller
@@ -13,6 +12,7 @@ class View extends Spine.Controller
 	
 	easing: 'swing'
 	item: null
+	trace: false
 
 	constructor: ->
 		super
@@ -35,11 +35,10 @@ class View extends Spine.Controller
 			dir = 'next'
 
 		@item = @img[0]
+		@imageDiv.first().remove() if @image[1]
 		@append require(@template)(@item)
 		@['anime_'+dir]()
 		@log 'anime_'+dir
-		@item.views++
-		@item.save()
 
 	anime_next: =>
 		@anime(-600)
@@ -48,7 +47,6 @@ class View extends Spine.Controller
 		@anime(600)
 
 	anime: (to)=>
-		# @log @image
 		$(@image[1]).css
 			left: -to
 		if @image[1]
@@ -68,4 +66,5 @@ class View extends Spine.Controller
 
 	updateLayout: (item) =>
 		@viewsCounter.text(item.views)
+		@el.css height: @image.last().height()
 module.exports = View
